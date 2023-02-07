@@ -7,7 +7,7 @@ export type MyPostType = {
 
 export function Post (props: MyPostType) {
     return (
-        <div className={post.post}>
+        <div className={post.posts}>
             <img src='https://avatars.mds.yandex.net/i?id=4cfbdb5c98a12458f25381de8511e083dbcea430-8254957-images-thumbs&n=13'/>
             {props.message}
             <div>

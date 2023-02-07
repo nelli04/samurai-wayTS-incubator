@@ -1,20 +1,23 @@
 import React from 'react';
-import n from './Navbar.module.css'
+import navbar from './Navbar.module.css'
 
 export function Navbar () {
     return (
-        <nav className={n.nav}>
-            <div className={n.item}>
+        <nav className={navbar.nav}>
+            <div className={navbar.item}>
                 <a href='/profile'>Profile</a>
             </div>
-            <div className={n.item}>
+            <div className={navbar.item}>
                 <a href='messages'>Messages</a>
             </div>
-            <div className={n.item}>
-                <a>News</a>
+            <div className={navbar.item}>
+                <a href='news'>News</a>
             </div>
-            <div className={n.item}>
-                <a>Settings</a>
+            <div className={navbar.item}>
+                <a href='settings'>Settings</a>
+            </div>
+            <div className={navbar.item}>
+                <a href='music'>Music</a>
             </div>
         </nav>
     )
