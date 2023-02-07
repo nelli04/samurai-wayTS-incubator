@@ -7,6 +7,7 @@ import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 
 function App() {
+    debugger
     return (
         <BrowserRouter>
             <div className='app_wrapper'>
@@ -14,7 +15,7 @@ function App() {
                 <Navbar/>
                 <div className='app_wrapper_content'>
                         <Route path={'/profile'} component={Profile}/>
-                        <Route path={'/profile'} component={Dialogs}/>
+                        <Route path={'/messages'} component={Dialogs}/>
                 </div>
             </div>
         </BrowserRouter>);
