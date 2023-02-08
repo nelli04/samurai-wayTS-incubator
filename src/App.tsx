@@ -17,11 +17,11 @@ function App() {
                 <Header/>
                 <Navbar/>
                 <div className='app_wrapper_content'>
-                    <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/messages'} component={Dialogs}/>
-                    <Route path={'/music'} component={Music}/>
-                    <Route path={'/settings'} component={Settings}/>
-                    <Route path={'/news'} component={News}/>
+                    <Route path={'/profile'} render={()=><Profile/>}/>
+                    <Route path={'/messages'} render={()=><Dialogs />}/>
+                    <Route path={'/music'} render={()=><Music/>}/>
+                    <Route path={'/settings'} render={()=><Settings/>}/>
+                    <Route path={'/news'} render={()=><News/>}/>
                 </div>
             </div>
         </BrowserRouter>
