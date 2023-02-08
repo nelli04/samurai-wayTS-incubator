@@ -1,10 +1,12 @@
 import React from 'react';
-import dialog from './Dialogs.module.css'
+import {DialogItem} from "./DialogItem/DialogItem";
 
-export function Dialogs () {
+export function Dialogs() {
     return (
-        <div className={dialog.content}>
-            Dialogssss
+        <div>
+            <DialogItem/>
         </div>
+
     )
 }
+
