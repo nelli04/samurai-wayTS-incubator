@@ -24,7 +24,8 @@ function App() {
                     <Route path={'/news'} component={News}/>
                 </div>
             </div>
-        </BrowserRouter>);
+        </BrowserRouter>
+    );
 }
 
 export default App;
