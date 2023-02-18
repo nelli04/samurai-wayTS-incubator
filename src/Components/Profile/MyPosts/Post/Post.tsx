@@ -9,10 +9,10 @@ export type MyPostType = {
 export function Post (props: MyPostType) {
     return (
         <div className={post.posts}>
-            <img src='https://avatars.mds.yandex.net/i?id=4cfbdb5c98a12458f25381de8511e083dbcea430-8254957-images-thumbs&n=13'/>
+            <img src='https://exploringbits.com/wp-content/uploads/2022/01/cat-pfp-5.jpg?ezimgfmt=rs:352x382/rscb3/ngcb3/notWebP' alt=''/>
             {props.message}
             <div>
-                <span>Like</span>
+                <span>Like {props.likesCount}</span>
             </div>
         </div>
     )
