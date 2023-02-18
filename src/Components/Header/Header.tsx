@@ -5,7 +5,8 @@ export const Header = () => {
     return (
         <header className={head.header}>
             <img
-                src='https://fotorelax.ru/wp-content/uploads/2016/02/Beautiful-photos-and-pictures-on-different-topics-01.jpg'/>
+                src='https://static.vecteezy.com/system/resources/previews/004/887/156/original/ab-ab-letter-design-logo-logotype-icon-concept-with-serif-font-and-classic-elegant-style-look-vector.jpg'
+                alt=''/>
         </header>
     );
 }
