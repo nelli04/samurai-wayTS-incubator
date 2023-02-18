@@ -1,5 +1,5 @@
-import {BrowserRouter, Route} from "react-router-dom";
-import React from 'react';
+import {Route} from "react-router-dom";
+import React, {FC} from 'react';
 import './App.css';
 import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
@@ -8,10 +8,13 @@ import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
-import {dialogsData, messagesData, postData} from "./index";
+import {DataType} from "./state/state";
 
+type AppType = {
+    state: DataType
+}
 
-function App() {
+const App: FC<AppType> = ({state}) => {
     debugger
     return (
 
@@ -19,10 +22,8 @@ function App() {
                 <Header/>
                 <Navbar/>
                 <div className='app_wrapper_content'>
-                    <Route path={'/profile'} render={()=><Profile/>}/>
-                    <Route path={'/messages'} render={()=><Dialogs dialogsData={dialogsData}
-                                                                   postData={postData}
-                                                                   messagesData={messagesData}/>}/>
+                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message}/>}/>
+                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile}/>}/>
                     <Route path={'/music'} render={()=><Music/>}/>
                     <Route path={'/settings'} render={()=><Settings/>}/>
                     <Route path={'/news'} render={()=><News/>}/>

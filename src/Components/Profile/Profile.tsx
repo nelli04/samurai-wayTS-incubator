@@ -2,13 +2,14 @@ import React from 'react';
 import prof from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileItems} from "./ProfileItems/ProfileItems";
-import {dialogsData, messagesData, postData} from "../../index";
+import {DataType} from "../../state/state";
 
-export function Profile () {
+
+export function Profile (props: DataType) {
     return (
         <div className={prof.content}>
             <ProfileItems/>
-            <MyPosts postData={postData} messagesData={messagesData} dialogsData={dialogsData}/>
+            <MyPosts profile={props.profile} message={props.message}/>
         </div>
         )
 }

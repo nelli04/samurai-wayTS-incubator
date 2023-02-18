@@ -1,11 +1,11 @@
 import React from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {DataType} from "../../../index";
+import {DataType} from "../../../state/state";
 
 export function MyPosts(props: DataType) {
 
-    const postHandler = props.postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
+    const postHandler = props.profile.postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
 
     return (
         <div >

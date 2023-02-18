@@ -2,13 +2,13 @@ import React from 'react';
 import {DialogItem} from "./DialogItem/DialogItem";
 import dialog from "./DialogItem/DialogsItem.module.css";
 import {Message} from "./Message/Message";
-import {DataType} from "../../index";
+import {DataType} from "../../state/state";
 
 
 export function Dialogs(props: DataType) {
 
-    const mapDialogDataHandler = props.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
-    const mapMessagesDataHandler = props.messagesData.map(m => <Message message={m.message} id={m.id}/>)
+    const mapDialogDataHandler = props.profile.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
+    const mapMessagesDataHandler = props.message.messagesData.map(m => <Message message={m.message} id={m.id}/>)
 
 
     debugger;
