@@ -9,7 +9,6 @@ export type DataType = {
     messagesData: Array<MessagesDataType>
     postData: Array<PostDataType>
 }
-
 export type DialogsDataType = {
     id: string
     name: string
