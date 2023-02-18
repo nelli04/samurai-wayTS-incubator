@@ -5,20 +5,20 @@ import {NavLink} from "react-router-dom";
 export function Navbar () {
     return (
         <nav className={navbar.nav}>
-            <div className={navbar.item} >
-                <NavLink to='/profile' activeClassName={navbar.active}>Profile</NavLink>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='/profile'>Profile</NavLink>
             </div>
-            <div className={navbar.item}>
-                <NavLink to='messages' activeClassName={navbar.active}>Messages</NavLink>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='messages'>Messages</NavLink>
             </div>
-            <div className={navbar.item}>
-                <NavLink to='news' activeClassName={navbar.active}>News</NavLink>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='news'>News</NavLink>
             </div>
-            <div className={navbar.item}>
-                <NavLink to='settings' activeClassName={navbar.active}>Settings</NavLink>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='settings'>Settings</NavLink>
             </div>
-            <div className={navbar.item}>
-                <NavLink to='music' activeClassName={navbar.active}>Music</NavLink>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='music'>Music</NavLink>
             </div>
         </nav>
     )
