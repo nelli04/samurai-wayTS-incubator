@@ -5,11 +5,10 @@ import {Message} from "./Message/Message";
 import {DataType} from "../../index";
 
 
-
 export function Dialogs(props: DataType) {
 
-        const mapDialogDataHandler = props.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
-        const  mapMessagesDataHandler = props.messagesData.map(m => <Message message={m.message} id={m.id}/>)
+    const mapDialogDataHandler = props.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
+    const mapMessagesDataHandler = props.messagesData.map(m => <Message message={m.message} id={m.id}/>)
 
 
     debugger;
@@ -17,10 +16,10 @@ export function Dialogs(props: DataType) {
     return (
         <div className={dialog.dialogs}>
             <div className={dialog.dialog_item}>
-                { mapDialogDataHandler }
+                {mapDialogDataHandler}
             </div>
             <div className={dialog.messages}>
-                { mapMessagesDataHandler }
+                {mapMessagesDataHandler}
             </div>
         </div>
     )
