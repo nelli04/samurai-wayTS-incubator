@@ -2,7 +2,7 @@ import React from 'react';
 import myposts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
 
-export function MyPosts () {
+export function MyPosts() {
 
     let postData = [
         {
@@ -16,14 +16,14 @@ export function MyPosts () {
             likeCount: 10
         }
     ]
-    const postHandler = postData.map( p =>  <Post message={p.message} likesCount={p.likeCount}/> )
+    const postHandler = postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
 
     return (
         <div className={myposts.myposts}>
             <textarea></textarea>
             <button>Отправить</button>
             <div className={myposts.post}>
-                { postHandler }
+                {postHandler}
             </div>
 
         </div>
