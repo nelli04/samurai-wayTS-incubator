@@ -1,14 +1,15 @@
 .nav {
     grid-area: n;
-    background-color: red;
-    padding: 15px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.item a{
-    color: white;
+.nav a {
+    color: black;
     text-decoration: none;
 }
 
-.item a.active {
-    color: cyan;
+.nav a.item {
+    color: #f1f1f1;
 }
