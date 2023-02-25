@@ -22,8 +22,8 @@ const App: FC<AppType> = ({state}) => {
                 <Header/>
                 <Navbar/>
                 <div className='app_wrapper_content'>
-                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message}/>}/>
-                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile}/>}/>
+                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message} addPost={state.addPost}/>}/>
+                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile} addPost={state.addPost}/>}/>
                     <Route path={'/music'} render={()=><Music/>}/>
                     <Route path={'/settings'} render={()=><Settings/>}/>
                     <Route path={'/news'} render={()=><News/>}/>
