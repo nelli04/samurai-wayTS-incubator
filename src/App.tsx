@@ -8,7 +8,7 @@ import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
-import {DataType} from "./state/state";
+import {DataType} from "./Components/Profile/state";
 
 type AppType = {
     state: DataType
