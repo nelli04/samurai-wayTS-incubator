@@ -8,7 +8,7 @@ export function MyPosts(props: DataType) {
     const postHandler = props.profile.postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-        let text = newPostElement.current?.value
+        console.log(props.addPost(newPostElement.current ? newPostElement.current.value : ''))
     }
 
     return (
