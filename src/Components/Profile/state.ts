@@ -58,25 +58,24 @@ export const state: DataType = {
             },
         ],
     },
-   message: {
-       messagesData: [
-           {
-               id: 1,
-               message: 'Hello'
-           },
-           {
-               id: 2,
-               message: 'Hello'
-           },
-           {
-               id: 3,
-               message: 'Hello'
-           },
-           {
-               id: 4,
-               message: 'Hello'
-           },
-       ]
-   }
-
+    message: {
+        messagesData: [
+            {
+                id: 1,
+                message: 'Hello'
+            },
+            {
+                id: 2,
+                message: 'Hello'
+            },
+            {
+                id: 3,
+                message: 'Hello'
+            },
+            {
+                id: 4,
+                message: 'Hello'
+            },
+        ]
+    }
 }
