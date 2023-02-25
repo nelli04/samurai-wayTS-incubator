@@ -2,7 +2,7 @@ import React from 'react';
 import {DialogItem} from "./DialogItem/DialogItem";
 import dialog from "./DialogItem/DialogsItem.module.css";
 import {Message} from "./Message/Message";
-import {DataType} from "../../state/state";
+import {DataType} from "../Profile/state";
 
 
 export function Dialogs(props: DataType) {
