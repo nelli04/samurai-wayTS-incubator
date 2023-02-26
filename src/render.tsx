@@ -9,7 +9,7 @@ import {DataType, state} from "./Components/Profile/state";
 export let rerenderEntireTree = (state: DataType) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state}/>
+            <App state={state} />
         </BrowserRouter>,
         document.getElementById('root')
     );
