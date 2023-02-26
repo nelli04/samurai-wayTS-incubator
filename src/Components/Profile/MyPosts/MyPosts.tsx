@@ -1,23 +1,19 @@
 import React from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {PostDataType} from "../state";
+import {DataType, PostDataType} from "../state";
 
 export type MyPostsType = {
     postData: PostDataType[]
     addPost: (postMessage: string) => void
 }
 
-export function MyPosts(props: MyPostsType) {
+export function MyPosts(props: DataType) {
 
-    const postHandler = props.postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
+    const postHandler = props.profile.postData.map(p => <Post message={p.message} likesCount={p.likeCount}/>)
     const newPostText = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-        if (newPostText.current) {
-            props.addPost(newPostText.current.value)
-            newPostText.current.value = ''
-        }
-
+        props.addPost(newPostText.current ? newPostText.current.value : '')
     }
 
     return (
