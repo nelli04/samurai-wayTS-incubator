@@ -1,7 +1,7 @@
 export type DataType = {
     message: MessageStateType
     profile: ProfileStateType
-    addPost: (text: string) => void
+    //addPost: (postMessage: string) => void
 }
 
 export type DialogsDataType = {
@@ -21,17 +21,18 @@ export type PostDataType = {
 export type ProfileStateType = {
     postData: PostDataType[]
     dialogsData: DialogsDataType[]
+
 }
 export type MessageStateType = {
     messagesData: MessagesDataType[]
 }
 
-export type newPost = {
+/*export type newPost = {
     id: number,
     message: string
     likeCount: number
 
-}
+}*/
 
 export const state: DataType = {
     profile: {
@@ -86,12 +87,12 @@ export const state: DataType = {
             },
         ]
     },
-    addPost: () => {addPost('')}
+    //addPost: (postMessage: string) => {}
 }
 
 export let addPost = (postMessage: string) => {
-    let newPost: newPost = {
-        id: new Date().getTime(),
+    let newPost: PostDataType = {
+        id: 5,
         message: postMessage,
         likeCount: 0
     };
