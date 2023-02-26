@@ -10,20 +10,19 @@ import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
 import {DataType} from "./Components/Profile/state";
 
-type AppType = {
+export type AppType = {
     state: DataType
 }
 
 const App: FC<AppType> = ({state}) => {
-    debugger
     return (
 
             <div className='app_wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app_wrapper_content'>
-                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message} addPost={state.addPost}/>}/>
-                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile} addPost={state.addPost}/>}/>
+                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message}/>}/>
+                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile}/>}/>
                     <Route path={'/music'} render={()=><Music/>}/>
                     <Route path={'/settings'} render={()=><Settings/>}/>
                     <Route path={'/news'} render={()=><News/>}/>
