@@ -6,19 +6,23 @@ export function Navbar () {
     return (
         <nav className={navbar.nav}>
             <div className={`${navbar.item}${navbar.active}`}>
-                <NavLink to='/profile'>Profile</NavLink>
+                <NavLink to='/profile'>Профиль</NavLink>
             </div>
             <div className={`${navbar.item}${navbar.active}`}>
-                <NavLink to='messages'>Messages</NavLink>
+                <NavLink to='messages'>Сообщения</NavLink>
             </div>
             <div className={`${navbar.item}${navbar.active}`}>
-                <NavLink to='news'>News</NavLink>
+                <NavLink to='news'>Новости</NavLink>
             </div>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='/friends'>Друзья</NavLink>
+            </div>
+            <div className={`${navbar.item}${navbar.active}`}>
+                <NavLink to='music'>Музыка</NavLink>
+            </div>
+            <hr/>
             <div className={`${navbar.item}${navbar.active}`}>
                 <NavLink to='settings'>Settings</NavLink>
-            </div>
-            <div className={`${navbar.item}${navbar.active}`}>
-                <NavLink to='music'>Music</NavLink>
             </div>
         </nav>
     )
