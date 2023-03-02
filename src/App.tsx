@@ -9,6 +9,7 @@ import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
 import {DataType} from "./Components/Profile/state";
+import {Friend} from "./Components/Navbar/Friends/Friend";
 
 export type AppType = {
     state: DataType
@@ -32,6 +33,7 @@ const App: FC<AppType> = ({state}) => {
                 <Route path={'/music'} render={() => <Music/>}/>
                 <Route path={'/settings'} render={() => <Settings/>}/>
                 <Route path={'/news'} render={() => <News/>}/>
+                <Route path={'/friends'} render={() => <Friend/>}/>
             </div>
         </div>
 
