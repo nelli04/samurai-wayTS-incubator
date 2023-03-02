@@ -7,6 +7,10 @@
 }
 
 .button {
-    border-radius: 5px;
     margin-left: 135px;
+}
+
+.but {
+    border-radius: 15px;
+    border: none;
 }
