@@ -27,10 +27,11 @@ export function MyPosts(props: DataType) {
 
             <div className={myPosts.text}>
                 <textarea /*ref={newPostText}*/
-                          onChange={onChangeTextarea}
-                          value={props.profile.newPostMessage}
+                    onChange={onChangeTextarea}
+                    value={props.profile.newPostMessage}
                 />
             </div>
+
             <div className={myPosts.button}>
                 <button onClick={onClickButtonHandler}>Отправить</button>
             </div>
