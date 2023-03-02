@@ -17,17 +17,23 @@ export type AppType = {
 const App: FC<AppType> = ({state}) => {
     return (
 
-            <div className='app_wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app_wrapper_content'>
-                    <Route path={'/profile'} render={()=><Profile profile={state.profile} message={state.message} addPost={state.addPost} changeNewText={state.changeNewText}/>}/>
-                    <Route path={'/messages'} render={()=><Dialogs message={state.message} profile={state.profile} addPost={state.addPost} changeNewText={state.changeNewText}/>}/>
-                    <Route path={'/music'} render={()=><Music/>}/>
-                    <Route path={'/settings'} render={()=><Settings/>}/>
-                    <Route path={'/news'} render={()=><News/>}/>
-                </div>
+        <div className='app_wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app_wrapper_content'>
+                <Route path={'/profile'} render={() => <Profile profile={state.profile}
+                                                                message={state.message}
+                                                                addPost={state.addPost}
+                                                                changeNewText={state.changeNewText}/>}/>
+                <Route path={'/messages'} render={() => <Dialogs message={state.message}
+                                                                 profile={state.profile}
+                                                                 addPost={state.addPost}
+                                                                 changeNewText={state.changeNewText}/>}/>
+                <Route path={'/music'} render={() => <Music/>}/>
+                <Route path={'/settings'} render={() => <Settings/>}/>
+                <Route path={'/news'} render={() => <News/>}/>
             </div>
+        </div>
 
     );
 }
