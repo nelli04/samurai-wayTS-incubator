@@ -1,4 +1,10 @@
-import {rerenderEntireTree} from "../../render";
+let rerenderEntireTree = () => {
+    console.log('state')
+}
+
+export const subscribe = (observer: () => void) => {
+    rerenderEntireTree = observer
+}
 
 export type DataType = {
     message: MessageStateType
@@ -92,12 +98,12 @@ export const state: DataType = {
         };
         state.profile.postData.push(newPost)
         state.profile.newPostMessage = ''
-        rerenderEntireTree(state)
+        rerenderEntireTree()
     },
     changeNewText: (newText: string) => {
         state.profile.newPostMessage = newText
-        rerenderEntireTree(state)
-    }
+        rerenderEntireTree()
+    },
 }
 
 
