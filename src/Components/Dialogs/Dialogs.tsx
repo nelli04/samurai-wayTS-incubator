@@ -7,8 +7,8 @@ import {DataType} from "../Profile/state";
 
 export function Dialogs(props: DataType) {
 
-    const mapDialogDataHandler = props.profile.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
-    const mapMessagesDataHandler = props.message.messagesData.map(m => <Message message={m.message} id={m.id}/>)
+    const mapDialogDataHandler = props.profile.dialogsData.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
+    const mapMessagesDataHandler = props.message.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
 
     debugger;
