@@ -29,6 +29,7 @@ export function MyPosts(props: DataType) {
                 <textarea /*ref={newPostText}*/
                     onChange={onChangeTextarea}
                     value={props.profile.newPostMessage}
+                    className={myPosts.textarea}
                 />
             </div>
 
