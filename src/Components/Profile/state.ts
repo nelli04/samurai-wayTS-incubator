@@ -30,13 +30,6 @@ export type MessageStateType = {
     messagesData: MessagesDataType[]
 }
 
-/*export type newPost = {
-    id: number,
-    message: string
-    likeCount: number
-
-}*/
-
 export const state: DataType = {
     profile: {
         newPostMessage: '',
@@ -91,13 +84,14 @@ export const state: DataType = {
             },
         ]
     },
-    addPost: (postMessage: string) => {
+    addPost: () => {
         let newPost: PostDataType = {
             id: 5,
-            message: postMessage,
+            message: state.profile.newPostMessage,
             likeCount: 0
         };
         state.profile.postData.push(newPost)
+        state.profile.newPostMessage = ''
         rerenderEntireTree(state)
     },
     changeNewText: (newText: string) => {
