@@ -33,7 +33,9 @@ export function MyPosts(props: DataType) {
             </div>
 
             <div className={myPosts.button}>
-                <button onClick={onClickButtonHandler}>Отправить</button>
+                <button
+                    className={myPosts.but}
+                    onClick={onClickButtonHandler}>Отправить</button>
             </div>
 
             <div className={myPosts.post}>
