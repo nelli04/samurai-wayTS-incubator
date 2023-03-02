@@ -10,7 +10,16 @@
     margin-left: 135px;
 }
 
+.textarea {
+    border-radius: 5px;
+    border: none;
+}
+
 .but {
     border-radius: 15px;
     border: none;
+}
+
+.but:hover {
+    opacity: 0.5;
 }
