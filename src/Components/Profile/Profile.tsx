@@ -13,7 +13,7 @@ export function Profile (props: DataType) {
     return (
         <div className={prof.content}>
             <ProfileItems/>
-            <MyPosts addPost={props.addPost} profile={props.profile} message={props.message}/>
+            <MyPosts addPost={props.addPost} profile={props.profile} message={props.message} changeNewText={props.changeNewText}/>
         </div>
         )
 }
