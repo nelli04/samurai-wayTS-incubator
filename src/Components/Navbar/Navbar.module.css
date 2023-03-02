@@ -10,6 +10,10 @@
     text-decoration: none;
 }
 
+.nav a:hover {
+    opacity: 0.5;
+}
+
 .nav a.item {
     color: #f1f1f1;
 }
