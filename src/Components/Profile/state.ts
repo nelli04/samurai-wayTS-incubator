@@ -1,7 +1,10 @@
+import {rerenderEntireTree} from "../../render";
+
 export type DataType = {
     message: MessageStateType
     profile: ProfileStateType
     addPost: (postMessage: string) => void
+    changeNewText: (newText: string) => void
 }
 
 export type DialogsDataType = {
@@ -21,7 +24,7 @@ export type PostDataType = {
 export type ProfileStateType = {
     postData: PostDataType[]
     dialogsData: DialogsDataType[]
-
+    newPostMessage: string
 }
 export type MessageStateType = {
     messagesData: MessagesDataType[]
@@ -36,6 +39,7 @@ export type MessageStateType = {
 
 export const state: DataType = {
     profile: {
+        newPostMessage: '',
         postData: [
             {
                 id: 1,
@@ -94,6 +98,12 @@ export const state: DataType = {
             likeCount: 0
         };
         state.profile.postData.push(newPost)
+        rerenderEntireTree(state)
+    },
+    changeNewText: (newText: string) => {
+        state.profile.newPostMessage = newText
+        rerenderEntireTree(state)
     }
 }
+
 
