@@ -6,7 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {DataType, store, StoreType} from "./Components/Profile/state";
 
 
-export let rerenderEntireTree = (/*state: StoreType*/) => {
+export let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={store._state} store={store}/>
@@ -14,8 +14,8 @@ export let rerenderEntireTree = (/*state: StoreType*/) => {
         document.getElementById('root')
     );
 }
-rerenderEntireTree()
-store.subscribe(rerenderEntireTree)
 
+store.subscribe(rerenderEntireTree)
+rerenderEntireTree()
 
 

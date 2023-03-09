@@ -8,7 +8,7 @@ import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
-import {DataType, store, StoreType} from "./Components/Profile/state";
+import {DataType, StoreType} from "./Components/Profile/state";
 import {Friend} from "./Components/Navbar/Friends/Friend";
 
 export type AppType = {
@@ -16,9 +16,7 @@ export type AppType = {
     store: StoreType
 }
 
-const App: React.FC<AppType> = ({store, state}) => {
-
-    //const state = props.store.getState()
+const App: FC<AppType> = ({state}) => {
 
     return (
 

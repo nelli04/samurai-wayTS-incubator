@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {DataType, StoreType} from "../state";
+import {DataType} from "../state";
 
 /*export type MyPostsType = {
     postData: PostDataType[]
