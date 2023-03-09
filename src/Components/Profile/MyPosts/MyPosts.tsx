@@ -11,12 +11,22 @@ import {DataType} from "../state";
 export function MyPosts(props: DataType) {
 
     const postHandler = props.profile.postData.map(p => <Post key={p.id} message={p.message} likesCount={p.likeCount}/>)
-    //const newPostText = React.createRef<HTMLTextAreaElement>()
+    const newPostText = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-        props.addPost(props.profile.newPostMessage)
+        //props.addPost(props.profile.newPostMessage)
+        if (newPostText.current) {
+            props.dispatch({type: "ADD_POST", newPosts: props.message})
+        }
+
     }
     const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.changeNewText(e.currentTarget.value)
+        if (newPostText.current) {
+            let text = newPostText.current.value
+            props.dispatch({type: "UPDATE_NEW_POST_TEXT", newText: text})
+        }
+
+        //props.changeNewText(e.currentTarget.value)
+
     }
 
     return (
@@ -26,7 +36,8 @@ export function MyPosts(props: DataType) {
             </div>
 
             <div className={myPosts.text}>
-                <textarea /*ref={newPostText}*/
+                <textarea
+                    ref={newPostText}
                     onChange={onChangeTextarea}
                     value={props.profile.newPostMessage}
                     className={myPosts.textarea}

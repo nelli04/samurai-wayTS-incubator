@@ -9,7 +9,7 @@ import {DataType, store, StoreType} from "./Components/Profile/state";
 export let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={store._state} store={store}/>
+            <App state={store._state} dispatch={store.dispatch.bind(store)} store={store}/>
         </BrowserRouter>,
         document.getElementById('root')
     );
