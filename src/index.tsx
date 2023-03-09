@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {state, subscribe} from "./Components/Profile/state";
+import {DataType, store, StoreType} from "./Components/Profile/state";
 
 
-export let rerenderEntireTree = (/*state: DataType*/) => {
+export let rerenderEntireTree = (/*state: StoreType*/) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} />
+            <App state={store._state} store={store}/>
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
 rerenderEntireTree()
-subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)
 
 
 

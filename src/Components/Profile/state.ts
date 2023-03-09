@@ -1,18 +1,17 @@
-let rerenderEntireTree = () => {
-    console.log('state')
-}
-
-export const subscribe = (observer: () => void) => {
-    rerenderEntireTree = observer
+export type StoreType = {
+    _state: DataType
+    getState: () => void
+    rerenderEntireTree: () => void
+    subscribe: (observer: () => void) => void
 }
 
 export type DataType = {
     message: MessageStateType
     profile: ProfileStateType
+
     addPost: (postMessage: string) => void
     changeNewText: (newText: string) => void
 }
-
 export type DialogsDataType = {
     id: string
     name: string
@@ -36,74 +35,155 @@ export type MessageStateType = {
     messagesData: MessagesDataType[]
 }
 
-export const state: DataType = {
-    profile: {
-        newPostMessage: '',
-        postData: [
-            {
-                id: 1,
-                message: 'Hey He',
-                likeCount: 12
-            },
-            {
-                id: 2,
-                message: 'Hey Hey friends',
-                likeCount: 10
-            }
-        ],
-        dialogsData: [
-            {
-                id: 'User1',
-                name: 'User1'
-            },
-            {
-                id: 'User2',
-                name: 'User2'
-            },
-            {
-                id: 'User3',
-                name: 'User3'
-            },
-            {
-                id: 'User4',
-                name: 'User4'
-            },
-        ],
+export const store: StoreType = {
+    _state: <DataType>  {
+        profile: {
+            newPostMessage: '',
+            postData: [
+                {
+                    id: 1,
+                    message: 'Hey He',
+                    likeCount: 12
+                },
+                {
+                    id: 2,
+                    message: 'Hey Hey friends',
+                    likeCount: 10
+                }
+            ],
+            dialogsData: [
+                {
+                    id: 'User1',
+                    name: 'User1'
+                },
+                {
+                    id: 'User2',
+                    name: 'User2'
+                },
+                {
+                    id: 'User3',
+                    name: 'User3'
+                },
+                {
+                    id: 'User4',
+                    name: 'User4'
+                },
+            ],
+        },
+        message: {
+            messagesData: [
+                {
+                    id: 1,
+                    message: 'Hello'
+                },
+                {
+                    id: 2,
+                    message: 'Hello'
+                },
+                {
+                    id: 3,
+                    message: 'Hello'
+                },
+                {
+                    id: 4,
+                    message: 'Hello'
+                },
+            ]
+        },
+        addPost () {
+            let newPost: PostDataType = {
+                id: 5,
+                message: this.profile.newPostMessage,
+                likeCount: 0
+            };
+            this.profile.postData.push(newPost)
+            this.profile.newPostMessage = ''
+            store.rerenderEntireTree()
+        },
+        changeNewText (newText: string) {
+            this.profile.newPostMessage = newText
+            store.rerenderEntireTree()
+        }
     },
-    message: {
-        messagesData: [
-            {
-                id: 1,
-                message: 'Hello'
-            },
-            {
-                id: 2,
-                message: 'Hello'
-            },
-            {
-                id: 3,
-                message: 'Hello'
-            },
-            {
-                id: 4,
-                message: 'Hello'
-            },
-        ]
+    getState () {
+        return this._state
     },
-    addPost: () => {
-        let newPost: PostDataType = {
-            id: 5,
-            message: state.profile.newPostMessage,
-            likeCount: 0
-        };
-        state.profile.postData.push(newPost)
-        state.profile.newPostMessage = ''
-        rerenderEntireTree()
+    rerenderEntireTree () {
+        console.log('state')
     },
-    changeNewText: (newText: string) => {
-        state.profile.newPostMessage = newText
-        rerenderEntireTree()
+    subscribe (observer: () => void)  {
+        this.rerenderEntireTree = observer
     },
 }
+
+// export const state: DataType = {
+//     profile: {
+//         newPostMessage: '',
+//         postData: [
+//             {
+//                 id: 1,
+//                 message: 'Hey He',
+//                 likeCount: 12
+//             },
+//             {
+//                 id: 2,
+//                 message: 'Hey Hey friends',
+//                 likeCount: 10
+//             }
+//         ],
+//         dialogsData: [
+//             {
+//                 id: 'User1',
+//                 name: 'User1'
+//             },
+//             {
+//                 id: 'User2',
+//                 name: 'User2'
+//             },
+//             {
+//                 id: 'User3',
+//                 name: 'User3'
+//             },
+//             {
+//                 id: 'User4',
+//                 name: 'User4'
+//             },
+//         ],
+//     },
+//     message: {
+//         messagesData: [
+//             {
+//                 id: 1,
+//                 message: 'Hello'
+//             },
+//             {
+//                 id: 2,
+//                 message: 'Hello'
+//             },
+//             {
+//                 id: 3,
+//                 message: 'Hello'
+//             },
+//             {
+//                 id: 4,
+//                 message: 'Hello'
+//             },
+//         ]
+//     },
+//     addPost: () => {
+//         let newPost: PostDataType = {
+//             id: 5,
+//             message: state.profile.newPostMessage,
+//             likeCount: 0
+//         };
+//         state.profile.postData.push(newPost)
+//         state.profile.newPostMessage = ''
+//         rerenderEntireTree()
+//     },
+//     changeNewText: (newText: string) => {
+//         state.profile.newPostMessage = newText
+//         rerenderEntireTree()
+//     },
+// }
 
 

@@ -8,14 +8,18 @@ import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
-import {DataType} from "./Components/Profile/state";
+import {DataType, store, StoreType} from "./Components/Profile/state";
 import {Friend} from "./Components/Navbar/Friends/Friend";
 
 export type AppType = {
     state: DataType
+    store: StoreType
 }
 
-const App: FC<AppType> = ({state}) => {
+const App: React.FC<AppType> = ({store, state}) => {
+
+    //const state = props.store.getState()
+
     return (
 
         <div className='app_wrapper'>
@@ -24,12 +28,14 @@ const App: FC<AppType> = ({state}) => {
             <div className='app_wrapper_content'>
                 <Route path={'/profile'} render={() => <Profile profile={state.profile}
                                                                 message={state.message}
+                                                                changeNewText={state.changeNewText}
                                                                 addPost={state.addPost}
-                                                                changeNewText={state.changeNewText}/>}/>
+                />}/>
                 <Route path={'/messages'} render={() => <Dialogs message={state.message}
                                                                  profile={state.profile}
+                                                                 changeNewText={state.changeNewText}
                                                                  addPost={state.addPost}
-                                                                 changeNewText={state.changeNewText}/>}/>
+                                                                 />}/>
                 <Route path={'/music'} render={() => <Music/>}/>
                 <Route path={'/settings'} render={() => <Settings/>}/>
                 <Route path={'/news'} render={() => <News/>}/>

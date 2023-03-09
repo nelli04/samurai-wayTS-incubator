@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {DataType} from "../state";
+import {DataType, StoreType} from "../state";
 
 /*export type MyPostsType = {
     postData: PostDataType[]
@@ -13,7 +13,7 @@ export function MyPosts(props: DataType) {
     const postHandler = props.profile.postData.map(p => <Post key={p.id} message={p.message} likesCount={p.likeCount}/>)
     //const newPostText = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-        props.addPost(props.profile.newPostMessage/*newPostText.current ? newPostText.current.value : ''*/)
+        props.addPost(props.profile.newPostMessage)
     }
     const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.changeNewText(e.currentTarget.value)
