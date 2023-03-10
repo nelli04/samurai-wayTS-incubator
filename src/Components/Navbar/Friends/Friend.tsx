@@ -11,7 +11,7 @@ export const Friend = (p: FriendType) => {
 
     return (
         <div>
-            {p.friends.friend.map(f => <Friends name={f.name}/>)}
+            {p.friends.friend.map(f => <Friends name={f.name} url={f.url}/>)}
         </div>
     );
 };
