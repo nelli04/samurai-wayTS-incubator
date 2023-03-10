@@ -18,7 +18,7 @@ export type AppType = {
 }
 
 const App: FC<AppType> = ({store, state}) => {
-
+    debugger;
     return (
 
         <div className='app_wrapper'>
@@ -27,7 +27,7 @@ const App: FC<AppType> = ({store, state}) => {
             <div className='app_wrapper_content'>
                 <Route path={'/profile'} render={() => <Profile profile={state.profile}
                                                                 message={state.message}
-                                   dispatch={store.dispatch.bind(store)}
+                                   dispatch={store.dispatch}
                 />}/>
                 <Route path={'/messages'} render={() => <Dialogs message={state.message}
                                                                  profile={state.profile}

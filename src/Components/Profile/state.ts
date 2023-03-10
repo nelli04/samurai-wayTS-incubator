@@ -1,7 +1,7 @@
 export type StoreType = {
     _state: DataType
     getState: () => void
-    rerenderEntireTree: () => void
+    _rerenderEntireTree: (_state: DataType) => void
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionsType) => void
 }
@@ -10,8 +10,6 @@ export type DataType = {
     message: MessageStateType
     profile: ProfileStateType
     dispatch: (action: ActionsType) => void
-    // _addPost: (/*postMessage: string*/) => void
-    // _changeNewText: (newText: string) => void
 }
 export type DialogsDataType = {
     id: string
@@ -35,20 +33,17 @@ export type ProfileStateType = {
 }
 export type MessageStateType = {
     messagesData: MessagesDataType[]
+    newDialogMessage: string
 }
 
-export type Add_Post_Type = {
-    type: 'ADD_POST'
-    newPosts: MessageStateType
-}
-export type Update_New_Post_Text_Type = {
-    type: 'UPDATE_NEW_POST_TEXT'
-    newText: string
-}
-export type ActionsType = Add_Post_Type | Update_New_Post_Text_Type
+export type ActionsType =
+      ReturnType<typeof addPostAC>
+    | ReturnType<typeof updateNewPostAC>
+    | ReturnType<typeof updateNewDialogsAC>
+    | ReturnType<typeof addDialogsAC>
 
 export const store: StoreType = {
-    _state: <DataType>  {
+    _state: <DataType>{
         profile: {
             newPostMessage: '',
             postData: [
@@ -83,6 +78,7 @@ export const store: StoreType = {
             ],
         },
         message: {
+            newDialogMessage: '',
             messagesData: [
                 {
                     id: 1,
@@ -102,38 +98,65 @@ export const store: StoreType = {
                 },
             ]
         },
-        // _addPost() {
-        //
-        // },
-        // _changeNewText(newText: string) {
-        //
-        // },
-
     },
-    getState () {
+    getState() {
         return this._state
     },
-    rerenderEntireTree () {
+    _rerenderEntireTree() {
         console.log('state')
     },
-    subscribe (observer: () => void)  {
-        this.rerenderEntireTree = observer
+    subscribe(observer: () => void) {
+        this._rerenderEntireTree = observer
     },
-    dispatch (action) {
-        if(action.type === 'ADD_POST') {
+    dispatch(action) {
+        debugger;
+        if (action.type === 'ADD_POST') {
             let newPost: PostDataType = {
                 id: 5,
                 message: this._state.profile.newPostMessage,
                 likeCount: 0
             }
             this._state.profile.postData.push(newPost)
-            this._state.profile.newPostMessage = ''
-            store.rerenderEntireTree()
+            this._state.profile.newPostMessage = '';
+            store._rerenderEntireTree(this._state)
         } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
             this._state.profile.newPostMessage = action.newText;
-            store.rerenderEntireTree()
+            this._rerenderEntireTree(this._state)
+        } else if (action.type === 'UPDATE_NEW_DIALOGS') {
+            this._state.message.newDialogMessage = action.send;
+            this._rerenderEntireTree(this._state)
+        } else if (action.type === 'ADD_DIALOGS') {
+
+            let send = this._state.message.newDialogMessage;
+            this._state.message.newDialogMessage = '';
+            this._state.message.messagesData.push({id: 6, message: send})
+            this._rerenderEntireTree(this._state)
         }
     }
+}
+
+export const addPostAC = () => {
+    return {
+        type: "ADD_POST",
+    } as const
+
+}
+export const updateNewPostAC = (newText: string) => {
+    return {
+        type: 'UPDATE_NEW_POST_TEXT',
+        newText: newText
+    } as const
+}
+export const updateNewDialogsAC = (send: string) => {
+    return {
+        type: 'UPDATE_NEW_DIALOGS',
+        send: send
+    } as const
+}
+export const addDialogsAC = () => {
+    return {
+        type: 'ADD_DIALOGS'
+    } as const
 }
 
 

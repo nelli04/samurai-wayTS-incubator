@@ -13,7 +13,6 @@ export function Profile (props: DataType) {
             <MyPosts dispatch={props.dispatch}
                      profile={props.profile}
                      message={props.message}
-                     // changeNewText={props.changeNewText}
             />
         </div>
         )

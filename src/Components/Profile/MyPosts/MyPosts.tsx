@@ -1,32 +1,21 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {DataType} from "../state";
+import {addPostAC, DataType, updateNewPostAC} from "../state";
 
-/*export type MyPostsType = {
-    postData: PostDataType[]
-    addPost: (postMessage: string) => void
-}*/
 
 export function MyPosts(props: DataType) {
 
     const postHandler = props.profile.postData.map(p => <Post key={p.id} message={p.message} likesCount={p.likeCount}/>)
     const newPostText = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-        //props.addPost(props.profile.newPostMessage)
-        if (newPostText.current) {
-            props.dispatch({type: "ADD_POST", newPosts: props.message})
-        }
-
+            props.dispatch(addPostAC())
     }
-    const onChangeTextarea = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const onChangeTextareaHandler = () => {
         if (newPostText.current) {
             let text = newPostText.current.value
-            props.dispatch({type: "UPDATE_NEW_POST_TEXT", newText: text})
+            props.dispatch(updateNewPostAC(text))
         }
-
-        //props.changeNewText(e.currentTarget.value)
-
     }
 
     return (
@@ -38,7 +27,7 @@ export function MyPosts(props: DataType) {
             <div className={myPosts.text}>
                 <textarea
                     ref={newPostText}
-                    onChange={onChangeTextarea}
+                    onChange={onChangeTextareaHandler}
                     value={props.profile.newPostMessage}
                     className={myPosts.textarea}
                 />
@@ -47,7 +36,8 @@ export function MyPosts(props: DataType) {
             <div className={myPosts.button}>
                 <button
                     className={myPosts.but}
-                    onClick={onClickButtonHandler}>Отправить</button>
+                    onClick={onClickButtonHandler}>Отправить
+                </button>
             </div>
 
             <div className={myPosts.post}>
