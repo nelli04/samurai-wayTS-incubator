@@ -8,10 +8,10 @@ type FriendType = {
 
 
 export const Friend = (p: FriendType) => {
-    const infoFriend = p.friends.friend.map(f => <Friends name={f.name} id={f.id} url={f.url}/>)
+
     return (
         <div>
-            {infoFriend}
+            {p.friends.friend.map(f => <Friends name={f.name}/>)}
         </div>
     );
 };

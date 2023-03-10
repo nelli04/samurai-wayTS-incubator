@@ -109,9 +109,9 @@ export const store: StoreType = {
         },
         friends: {
             friend: [
-                {id: 1, name: 'Boss', url: 'https://live.staticflickr.com/7151/6760135001_58b1c5c5f0_b.jpg'},
-                {id: 1, name: 'Nick', url: 'https://www.esafety.gov.au/sites/default/files/2019-08/Remove%20images%20and%20video.jpg'},
-                {id: 1, name: 'Git', url: 'https://media1.popsugar-assets.com/files/thumbor/rqrH_e6UUncDFPoF9Rp8aUwGNaA/1126x0:2714x1588/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/12/06/832/n/44498184/4a11b5145deaa4f27e6ba1.42001155_/i/baby-yoda-pictures.jpg'},
+                {id: 1, name: 'Boss'},
+                {id: 1, name: 'Nick'},
+                {id: 1, name: 'GitK'},
             ]
         }
     },
