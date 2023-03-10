@@ -15,7 +15,6 @@ export function Dialogs(props: DialogsType) {
     const mapDialogDataHandler = props.profile.dialogsData.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
     const mapMessagesDataHandler = props.message.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
-    // const dialogTextarea = createRef<HTMLTextAreaElement>()
     const onClickDialogHandler = () => {
         props.dispatch(addDialogsAC());
     }
@@ -41,14 +40,15 @@ export function Dialogs(props: DialogsType) {
                <textarea
                    onChange={onChangeTextareaHandler}
                    value={props.message.newDialogMessage}
-                   //ref={dialogTextarea}
                    className={dialog.textarea}
                />
-                <button
-                    onClick={onClickDialogHandler}
-                    className={dialog.button}
-                >Отправить
-                </button>
+                <div >
+                    <button
+                        onClick={onClickDialogHandler}
+                        className={dialog.button}
+                    >Отправить
+                    </button>
+                </div>
             </div>
         </div>
     )

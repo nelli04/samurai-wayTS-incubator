@@ -1,3 +1,7 @@
+import {profileReducer} from "./profile_reducer";
+import {dialogsReducer} from "./dialogs_reducer";
+import {friendsReducer} from "./friends_reducer";
+
 export type StoreType = {
     _state: DataType
     getState: () => void
@@ -125,28 +129,11 @@ export const store: StoreType = {
         this._rerenderEntireTree = observer
     },
     dispatch(action) {
-        debugger;
-        if (action.type === 'ADD_POST') {
-            let newPost: PostDataType = {
-                id: 5,
-                message: this._state.profile.newPostMessage,
-                likeCount: 0
-            }
-            this._state.profile.postData.push(newPost)
-            this._state.profile.newPostMessage = '';
-            store._rerenderEntireTree(this._state)
-        } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
-            this._state.profile.newPostMessage = action.newText;
-            this._rerenderEntireTree(this._state)
-        } else if (action.type === 'UPDATE_NEW_DIALOGS') {
-            this._state.message.newDialogMessage = action.send;
-            this._rerenderEntireTree(this._state)
-        } else if (action.type === 'ADD_DIALOGS') {
-            let send = this._state.message.newDialogMessage;
-            this._state.message.newDialogMessage = '';
-            this._state.message.messagesData.push({id: 6, message: send})
-            this._rerenderEntireTree(this._state)
-        }
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.message = dialogsReducer(this._state.message, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
+
+        this._rerenderEntireTree(this._state)
     }
 }
 
@@ -173,5 +160,54 @@ export const addDialogsAC = () => {
         type: 'ADD_DIALOGS'
     } as const
 }
+
+//-----------------------------------------------------------------------------
+
+
+// if (action.type === 'ADD_POST') {
+//     let newPost: PostDataType = {
+//         id: 5,
+//         message: this._state.profile.newPostMessage,
+//         likeCount: 0
+//     }
+//     this._state.profile.postData.push(newPost)
+//     this._state.profile.newPostMessage = '';
+//     store._rerenderEntireTree(this._state)
+// } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
+//     this._state.profile.newPostMessage = action.newText;
+//     this._rerenderEntireTree(this._state)
+// } else if (action.type === 'UPDATE_NEW_DIALOGS') {
+//     this._state.message.newDialogMessage = action.send;
+//     this._rerenderEntireTree(this._state)
+// } else if (action.type === 'ADD_DIALOGS') {
+//     let send = this._state.message.newDialogMessage;
+//     this._state.message.newDialogMessage = '';
+//     this._state.message.messagesData.push({id: 6, message: send})
+//     this._rerenderEntireTree(this._state)
+// }
+
+// export const addPostAC = () => {
+//     return {
+//         type: "ADD_POST",
+//     } as const
+//
+// }
+// export const updateNewPostAC = (newText: string) => {
+//     return {
+//         type: 'UPDATE_NEW_POST_TEXT',
+//         newText: newText
+//     } as const
+// }
+// export const updateNewDialogsAC = (send: string) => {
+//     return {
+//         type: 'UPDATE_NEW_DIALOGS',
+//         send: send
+//     } as const
+// }
+// export const addDialogsAC = () => {
+//     return {
+//         type: 'ADD_DIALOGS'
+//     } as const
+// }
 
 
