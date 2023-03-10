@@ -2,7 +2,7 @@ import React from 'react';
 import prof from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileItems} from "./ProfileItems/ProfileItems";
-import {DataType} from "./state";
+import {DataType} from "../../state/state";
 
 
 export function Profile (props: DataType) {
@@ -13,6 +13,7 @@ export function Profile (props: DataType) {
             <MyPosts dispatch={props.dispatch}
                      profile={props.profile}
                      message={props.message}
+                     friends={props.friends}
             />
         </div>
         )

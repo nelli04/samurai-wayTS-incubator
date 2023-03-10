@@ -1,7 +1,7 @@
 import React from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {addPostAC, DataType, updateNewPostAC} from "../state";
+import {addPostAC, DataType, updateNewPostAC} from "../../../state/state";
 
 
 export function MyPosts(props: DataType) {
