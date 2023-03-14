@@ -1,4 +1,4 @@
-import React, {ChangeEvent, createRef} from 'react';
+import React, {ChangeEvent} from 'react';
 import {DialogItem} from "./DialogItem/DialogItem";
 import dialog from "./DialogItem/DialogsItem.module.css";
 import {Message} from "./Message/Message";
@@ -8,6 +8,8 @@ type DialogsType = {
     profile: ProfileStateType
     message: MessageStateType
     dispatch: (action: ActionsType) => void
+    addDialogsAC: () => void
+    updateNewDialogsAC: (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 export function Dialogs(props: DialogsType) {

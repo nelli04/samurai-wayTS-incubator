@@ -10,6 +10,7 @@ import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
 import {ActionsType, DataType, StoreType} from "./state/state";
 import {Friend} from "./Components/Navbar/Friends/Friend";
+import {DialogsContainer} from "./Components/container/DialogsContainer";
 
 export type AppType = {
     state: DataType
@@ -26,10 +27,7 @@ const App: FC<AppType> = ({store, state}) => {
             <Navbar/>
             <div className='app_wrapper_content'>
                 <Route path={'/profile'} render={() => <Profile store={store}/>}/>
-                <Route path={'/messages'} render={() => <Dialogs message={state.message}
-                                                                 profile={state.profile}
-                                                                 dispatch={store.dispatch.bind(store)}
-                />}/>
+                <Route path={'/messages'} render={() => <DialogsContainer store={store}/>}/>
                 <Route path={'/music'} render={() => <Music/>}/>
                 <Route path={'/settings'} render={() => <Settings/>}/>
                 <Route path={'/news'} render={() => <News/>}/>
@@ -41,3 +39,8 @@ const App: FC<AppType> = ({store, state}) => {
 }
 
 export default App;
+
+/*<Dialogs message={state.message}
+                                                                 profile={state.profile}
+                                                                 dispatch={store.dispatch.bind(store)}
+                />}*/

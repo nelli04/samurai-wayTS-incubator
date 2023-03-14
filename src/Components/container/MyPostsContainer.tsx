@@ -1,12 +1,12 @@
 import React from 'react';
-import {ActionsType, addPostAC, ProfileStateType, StoreType, updateNewPostAC} from "../../state/state";
+import {addPostAC, StoreType, updateNewPostAC} from "../../state/state";
 import {MyPosts} from "../Profile/MyPosts/MyPosts";
 
-type MyPostsContainer = {
+type MyPostsContainerType = {
     store: StoreType
 }
 
-export function MyPostsContainer (props: MyPostsContainer) {
+export function MyPostsContainer (props: MyPostsContainerType) {
 
     // const postHandler = props.profile.postData.map(p => <Post key={p.id} message={p.message} likesCount={p.likeCount}/>)
     // const newPostText = React.createRef<HTMLTextAreaElement>()
