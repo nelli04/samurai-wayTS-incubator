@@ -25,8 +25,7 @@ const App: FC<AppType> = ({store, state}) => {
             <Header/>
             <Navbar/>
             <div className='app_wrapper_content'>
-                <Route path={'/profile'} render={() => <Profile store={store}
-                />}/>
+                <Route path={'/profile'} render={() => <Profile store={store}/>}/>
                 <Route path={'/messages'} render={() => <Dialogs message={state.message}
                                                                  profile={state.profile}
                                                                  dispatch={store.dispatch.bind(store)}
