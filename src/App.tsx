@@ -26,9 +26,9 @@ const App: FC<AppType> = ({store, state}) => {
             <Navbar/>
             <div className='app_wrapper_content'>
                 <Route path={'/profile'} render={() => <Profile profile={state.profile}
-                                                                message={state.message}
+                                                                addPostAC={()=>{}}
+                                                                updateNewPostAC={()=>{}}
                                                                 dispatch={store.dispatch.bind(store)}
-                                                                friends={state.friends}
                 />}/>
                 <Route path={'/messages'} render={() => <Dialogs message={state.message}
                                                                  profile={state.profile}

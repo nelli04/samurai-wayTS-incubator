@@ -4,7 +4,7 @@ import {friendsReducer} from "./friends_reducer";
 
 export type StoreType = {
     _state: DataType
-    getState: () => void
+    getState: (_state: DataType) => void
     _rerenderEntireTree: (_state: DataType) => void
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionsType) => void
@@ -120,7 +120,7 @@ export const store: StoreType = {
         }
     },
     getState() {
-        return this._state
+        return this._state;
     },
     _rerenderEntireTree() {
         console.log('state')

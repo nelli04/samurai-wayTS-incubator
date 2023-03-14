@@ -1,20 +1,22 @@
 import React from 'react';
 import prof from './Profile.module.css'
-import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileItems} from "./ProfileItems/ProfileItems";
-import {DataType} from "../../state/state";
+import {ActionsType, ProfileStateType, store} from "../../state/state";
+import {MyPostsContainer} from "../container/MyPostsContainer";
 
+type ProfileType = {
+    profile: ProfileStateType
+    dispatch: (action: ActionsType) => void
+    updateNewPostAC: (newText: string) => void
+    addPostAC: () => void
+}
 
-export function Profile (props: DataType) {
+export function Profile (props: ProfileType) {
 
     return (
         <div className={prof.content}>
             <ProfileItems/>
-            <MyPosts dispatch={props.dispatch}
-                     profile={props.profile}
-                     message={props.message}
-                     friends={props.friends}
-            />
+            <MyPostsContainer store={store}/>
         </div>
         )
 }

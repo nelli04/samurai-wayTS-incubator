@@ -1,20 +1,29 @@
 import React from 'react';
 import myPosts from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {addPostAC, DataType, updateNewPostAC} from "../../../state/state";
+import {ActionsType, ProfileStateType} from "../../../state/state";
+
+type MyPosts = {
+    profile: ProfileStateType
+    dispatch: (action: ActionsType) => void
+    updateNewPostAC: (newText: string) => void
+    addPostAC: () => void
+}
 
 
-export function MyPosts(props: DataType) {
+export function MyPosts(props: MyPosts) {
 
     const postHandler = props.profile.postData.map(p => <Post key={p.id} message={p.message} likesCount={p.likeCount}/>)
     const newPostText = React.createRef<HTMLTextAreaElement>()
     const onClickButtonHandler = () => {
-            props.dispatch(addPostAC())
+        props.addPostAC()
+        //props.dispatch(addPostAC())
     }
     const onChangeTextareaHandler = () => {
         if (newPostText.current) {
-            let text = newPostText.current.value
-            props.dispatch(updateNewPostAC(text))
+            let text = newPostText.current.value;
+            props.updateNewPostAC(text);
+            //props.dispatch(updateNewPostAC(text))
         }
     }
 
