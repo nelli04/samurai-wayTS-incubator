@@ -27,11 +27,8 @@ export function DialogsContainer(props: DialogsContainerType) {
     const onClickDialogHandler = () => {
         props.store.dispatch(addDialogsAC());
     }
-    const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        //if (e.target) {
-            let text = e.target.value;
-            updateNewDialogsAC(text)
-            //props.dispatch(updateNewDialogsAC(text));
+    const onChangeTextareaHandler = (send: string) => {
+            props.store.dispatch(updateNewDialogsAC(send))
     }
 
     return (

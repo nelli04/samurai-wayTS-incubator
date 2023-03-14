@@ -9,7 +9,7 @@ type DialogsType = {
     message: MessageStateType
     dispatch: (action: ActionsType) => void
     addDialogsAC: () => void
-    updateNewDialogsAC: (e: ChangeEvent<HTMLTextAreaElement>) => void
+    updateNewDialogsAC: (send: string) => void
 }
 
 export function Dialogs(props: DialogsType) {
@@ -18,13 +18,13 @@ export function Dialogs(props: DialogsType) {
     const mapMessagesDataHandler = props.message.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
 
     const onClickDialogHandler = () => {
-        props.dispatch(addDialogsAC());
+        props.addDialogsAC();
     }
     const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         debugger
         if (e.target) {
             let text = e.target.value;
-            props.dispatch(updateNewDialogsAC(text));
+            props.updateNewDialogsAC(text);
         }
 
     }
