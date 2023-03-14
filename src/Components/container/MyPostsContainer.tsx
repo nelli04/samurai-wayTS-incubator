@@ -4,10 +4,6 @@ import {MyPosts} from "../Profile/MyPosts/MyPosts";
 
 type MyPostsContainer = {
     store: StoreType
-    // profile: ProfileStateType
-    // dispatch: (action: ActionsType) => void
-    // updateNewPostAC: (newText: string) => void
-    // addPostAC: () => void
 }
 
 export function MyPostsContainer (props: MyPostsContainer) {

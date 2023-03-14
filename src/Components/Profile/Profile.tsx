@@ -1,14 +1,11 @@
 import React from 'react';
 import prof from './Profile.module.css'
 import {ProfileItems} from "./ProfileItems/ProfileItems";
-import {ActionsType, ProfileStateType, store} from "../../state/state";
+import {ActionsType, ProfileStateType, store, StoreType} from "../../state/state";
 import {MyPostsContainer} from "../container/MyPostsContainer";
 
 type ProfileType = {
-    profile: ProfileStateType
-    dispatch: (action: ActionsType) => void
-    updateNewPostAC: (newText: string) => void
-    addPostAC: () => void
+    store: StoreType
 }
 
 export function Profile (props: ProfileType) {
