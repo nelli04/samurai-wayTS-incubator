@@ -5,27 +5,25 @@ import {StoreContext} from "../../StoreContext";
 
 export function MyPostsContainer() {
 
-
     return (
         <StoreContext.Consumer>
-            {
-                (store) => {
+            {store => {
 
-                    const onClickButtonHandler = () => {
-                        store.dispatch(addPostAC())
-                    }
-                    const onChangeTextareaHandler = (newText: string) => {
-                       store.dispatch(updateNewPostAC(newText))
-
-                    }
-                    return <MyPosts profile={store._state.profile}
-                                    dispatch={store.dispatch}
-                                    updateNewPostAC={onChangeTextareaHandler}
-                                    addPostAC={onClickButtonHandler}
-                    />
+                const onClickButtonHandler = () => {
+                    store.dispatch(addPostAC())
                 }
-            }
+                const onChangeTextareaHandler = (newText: string) => {
+                    store.dispatch(updateNewPostAC(newText))
 
+                }
+                return (
+                    <MyPosts profile={store._state.profile}
+                             dispatch={store.dispatch}
+                             updateNewPostAC={onChangeTextareaHandler}
+                             addPostAC={onClickButtonHandler}
+                    />)
+            }
+            }
         </StoreContext.Consumer>
     )
 }

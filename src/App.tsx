@@ -10,7 +10,7 @@ import {News} from "./Components/News/News";
 import {DialogsContainer} from "./Components/container/DialogsContainer";
 
 const App = () => {
-    debugger;
+
     return (
 
         <div className='app_wrapper'>
