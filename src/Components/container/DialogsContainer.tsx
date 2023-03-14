@@ -6,8 +6,6 @@ import {StoreContext} from "../../StoreContext";
 
 export function DialogsContainer() {
 
-
-
     return (
             <StoreContext.Consumer>
             { store => {
