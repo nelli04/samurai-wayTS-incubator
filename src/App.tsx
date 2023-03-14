@@ -4,7 +4,6 @@ import './App.css';
 import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Profile} from "./Components/Profile/Profile";
-import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
 import {News} from "./Components/News/News";
@@ -26,7 +25,7 @@ const App: FC<AppType> = ({store, state}) => {
             <Header/>
             <Navbar/>
             <div className='app_wrapper_content'>
-                <Route path={'/profile'} render={() => <Profile store={store}/>}/>
+                <Route path={'/profile'} render={() => <Profile/>}/>
                 <Route path={'/messages'} render={() => <DialogsContainer store={store}/>}/>
                 <Route path={'/music'} render={() => <Music/>}/>
                 <Route path={'/settings'} render={() => <Settings/>}/>
@@ -39,8 +38,3 @@ const App: FC<AppType> = ({store, state}) => {
 }
 
 export default App;
-
-/*<Dialogs message={state.message}
-                                                                 profile={state.profile}
-                                                                 dispatch={store.dispatch.bind(store)}
-                />}*/
