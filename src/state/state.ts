@@ -131,7 +131,7 @@ export const store: StoreType = {
     dispatch(action) {
         this._state.profile = profileReducer(this._state.profile, action);
         this._state.message = dialogsReducer(this._state.message, action);
-        this._state.friends = friendsReducer(this._state.friends, action);
+        //this._state.friends = friendsReducer(this._state.friends, action);
 
         this._rerenderEntireTree(this._state)
     }

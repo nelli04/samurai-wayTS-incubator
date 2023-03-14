@@ -1,4 +1,27 @@
-export const dialogsReducer = (state: any, action: any) => {
+
+let initialStateDialog = {
+        newDialogMessage: '',
+        messagesData: [
+            {
+                id: 1,
+                message: 'Hello'
+            },
+            {
+                id: 2,
+                message: 'Hello'
+            },
+            {
+                id: 3,
+                message: 'Hello'
+            },
+            {
+                id: 4,
+                message: 'Hello'
+            },
+        ]
+    }
+
+export const dialogsReducer = (state = initialStateDialog, action: any) => {
     switch (action.type) {
         case 'UPDATE_NEW_DIALOGS':
             state.newDialogMessage = action.send;

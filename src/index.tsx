@@ -14,8 +14,9 @@ export let rerenderEntireTree = () => {
         document.getElementById('root')
     );
 }
-
+//@ts-ignore
+rerenderEntireTree(store.getState())
 store.subscribe(rerenderEntireTree)
-rerenderEntireTree()
+
 
 
