@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 import {DialogItem} from "./DialogItem/DialogItem";
 import dialog from "./DialogItem/DialogsItem.module.css";
 import {Message} from "./Message/Message";
-import {ActionsType, addDialogsAC, MessageStateType, ProfileStateType, updateNewDialogsAC} from "../../state/state";
+import {ActionsType, MessageStateType, ProfileStateType} from "../../state/state";
 
 type DialogsType = {
     profile: ProfileStateType

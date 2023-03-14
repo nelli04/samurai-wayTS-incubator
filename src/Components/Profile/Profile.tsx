@@ -13,5 +13,3 @@ export function Profile () {
         </div>
         )
 }
-
-/*profile={props.profile} message={props.message} addPost={props.addPost}*/
